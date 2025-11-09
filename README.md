@@ -33,7 +33,7 @@ Este método ayuda a mejorar la concentración, evitar la fatiga mental y gestio
 
 ## 🖥️ Instalación y ejecución
 
-### 🔹 Opción 2: Ejecutar desde el código fuente
+### 🔹Ejecutar desde el código fuente
 
 1. Clona el repositorio:
    ```bash
