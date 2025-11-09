@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Terminos y condiciones-->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="rendere.js"></script>
+    <title>Pomodoro</title>
+  </head>
+  <body>
+    <p id="status" class="status"></p>
+    <div class="timer">
+      <span class="minutes">12</span>
+      <br />
+      <span class="seconds">00</span>
+    </div>
+    <div class="buttons-actions">
+      <button class="btn">
+        <img
+          src="assets/svg/rotate-ccw.svg"
+          alt="menu"
+          width="60px"
+          height="50px"
+          id="btn-reset"
+        />
+      </button>
+      <button class="btn-start">
+        <img src="assets/svg/play.svg" alt="play" width="60px" height="70px" />
+      </button>
+      <button class="btn" id="btn-stop">
+        <img
+          src="assets/svg/pause.svg"
+          alt="pause"
+          width="60px"
+          height="50px"
+        />
+      </button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+# Ignorar dependencias
+node_modules/
+
+# Ignorar archivos de compilación
+dist/
+out/
+build/
+*.exe
+*.zip

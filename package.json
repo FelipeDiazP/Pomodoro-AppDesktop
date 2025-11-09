@@ -1,0 +1,31 @@
+{
+  "name": "pomodoro-desktop",
+  "version": "1.0.0",
+  "description": "Temporizador Pomodoro hecho con Electron",
+  "main": "main.js",
+  "scripts": {
+    "dev": "electron .",
+    "build": "electron-builder"
+  },
+  "author": "Ivan",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "electron": "^39.1.1",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.Ivan.pomodoro",
+    "productName": "Pomodoro",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    }
+  }
+}
