@@ -64,7 +64,7 @@ Pomodoro-AppDesktop/
 ---
 🧑‍💻 Autor
 👤 Ivan Felipe Prada Diaz
-💼 [text](https://github.com/FelipeDiazP)
+💼 [GITHUB](https://github.com/FelipeDiazP)
 
 ---
 ⭐ Si te gustó este proyecto, apóyalo con una estrella en GitHub.
