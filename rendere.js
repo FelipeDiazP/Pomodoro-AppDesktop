@@ -10,7 +10,6 @@ let totalSeconds;
 let interval = null;
 let isRunning = false;
 
-//Funcion para inicializar el tiempo segun el valro actual del HTML
 function initTimer() {
   const sessionAmount = parseInt(minutesDisplay.textContent);
   totalSeconds = sessionAmount * 60;
@@ -53,7 +52,7 @@ function stopTimer() {
 }
 
 function resetTimer() {
-  clearInterval(interval); // 🔹 Detiene el temporizador si está corriendo
+  clearInterval(interval); 
   totalSeconds = initialMinutes * 60;
   isRunning = false;
   showStatus("Pomodoro Reiniciado");
