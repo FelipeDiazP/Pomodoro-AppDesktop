@@ -5,17 +5,23 @@ const createWindow = () => {
   const win = new BrowserWindow({
     height: 700,
     width: 1100,
-    resizable: false, // ❌ no se puede cambiar el tamaño
-    maximizable: false, // ❌ no se puede maximizar
-    minimizable: true, // ✅ aún se puede minimizar
-    autoHideMenuBar: true, // 🔹 oculta el menú superior
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
+      webSecurity: false,
+      resizable: false,
+      nodeIntegration: false,
+      contextIsolation: true,
     },
   });
 
   win.setMenu(null)
   win.loadFile("index.html");
+
+  // 🔊 Control inicial del volumen
+  mainWindow.webContents.setAudioMuted(false);
+
+  // 🔉 Bajar volumen al 30%
+  mainWindow.webContents.setVolume(0.1);
 };
 
 app.whenReady().then(() => {

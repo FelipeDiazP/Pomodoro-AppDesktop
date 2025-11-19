@@ -3,47 +3,70 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--Terminos y condiciones-->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <meta
-      http-equiv="X-Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
     <link rel="stylesheet" href="style.css" />
     <script defer src="rendere.js"></script>
     <title>Pomodoro</title>
   </head>
   <body>
     <p id="status" class="status"></p>
-    <div class="timer">
-      <span class="minutes">12</span>
-      <br />
-      <span class="seconds">00</span>
-    </div>
-    <div class="buttons-actions">
-      <button class="btn">
-        <img
-          src="assets/svg/rotate-ccw.svg"
-          alt="menu"
-          width="60px"
-          height="50px"
-          id="btn-reset"
-        />
-      </button>
-      <button class="btn-start">
-        <img src="assets/svg/play.svg" alt="play" width="60px" height="70px" />
-      </button>
-      <button class="btn" id="btn-stop">
-        <img
-          src="assets/svg/pause.svg"
-          alt="pause"
-          width="60px"
-          height="50px"
-        />
-      </button>
+    <div class="container">
+      <!--Items a la izquierda-->
+      <div class="izquierda">
+        <div class="menu-container">
+          <button class="menu" id="menu">
+            <img src="assets/svg/menu.svg" alt="Icon-menu" />
+            Menu
+          </button>
+          <div id="panel-menu" class="panel-menu hidden">
+            <button class="btn-shortBreak">Descanso pequeño</button>
+            <button class="btn-shortLong">Descanso largo</button>
+            <input id="spotifyUrl" placeholder="Pega la playlist de Spotify" />
+            <button id="loadPlaylist" class="loadPlaylist">Cargar</button>
+          </div>
+        </div>
+        <div class="spotify-box">
+          <div class="container-spotify"></div>
+        </div>
+      </div>
+      <!--Items en el centro-->
+      <div class="items-center">
+        <div class="timer">
+          <span class="minutes" contenteditable="true">12</span>
+          <br />
+          <span class="seconds" contenteditable="true">00</span>
+        </div>
+        <div class="buttons-actions">
+          <button class="btn">
+            <img
+              src="assets/svg/rotate-ccw.svg"
+              alt="menu"
+              width="60px"
+              height="50px"
+              id="btn-reset"
+            />
+          </button>
+          <button class="btn-start">
+            <img
+              src="assets/svg/play.svg"
+              alt="play"
+              width="60px"
+              height="70px"
+            />
+          </button>
+          <button class="btn" id="btn-stop">
+            <img
+              src="assets/svg/pause.svg"
+              alt="pause"
+              width="60px"
+              height="50px"
+            />
+          </button>
+        </div>
+      </div>
+      <!--Items a la derecha-->
+      <div class="derecha">
+        <span>Hola</span>
+      </div>
     </div>
   </body>
 </html>
