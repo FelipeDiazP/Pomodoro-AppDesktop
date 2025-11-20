@@ -155,11 +155,7 @@ body {
 
 /* CENTRO */
 .items-center {
-<<<<<<< HEAD
   flex: 1;
-=======
-  flex: 1; /* ocupa el espacio restante */
->>>>>>> 88df1bc6458ffffc0330c800637bec22174ad415
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -290,14 +286,13 @@ body {
 
 .todo-tarea {
   display: flex;
-  padding: 5px;
   align-items: center;
   gap: 10px;
 }
 
 .container-ToDo h1 {
   font-size: 30px;
-  margin: 5px 0;
+  margin: 5px 0; /
 }
 
 .container-ToDo p {
@@ -347,15 +342,4 @@ body {
 .btn-delete:hover {
   background-color: #833e3e;
   transform: scale(1.05);
-}
-
-/* DERECHA */
-.derecha {
-  position: absolute;
-  right: 20px; /* 🔥 pegado al borde derecho */
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
