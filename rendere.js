@@ -19,17 +19,14 @@ function loadSavedTimer() {
   const savedSeconds = localStorage.getItem("timerSeconds");
 
   if (savedMinutes !== null && savedSeconds !== null) {
-    // Si guardaste minutos y segundos manuales
     minutesDisplay.textContent = savedMinutes.padStart(2, "0");
     secondsDisplay.textContent = savedSeconds.padStart(2, "0");
     totalSeconds = parseInt(savedMinutes) * 60 + parseInt(savedSeconds);
     initialMinutes = parseInt(savedMinutes);
   } else if (savedTime !== null) {
-    // Si solo existe el timer en segundos
     totalSeconds = parseInt(savedTime);
     initialMinutes = Math.floor(totalSeconds / 60);
   } else {
-    // Si nunca había un timer guardado
     totalSeconds = initialMinutes * 60;
   }
 
@@ -80,7 +77,7 @@ secondsDisplay.addEventListener("input", () => {
 function startTimer() {
   if (!isRunning) {
     isRunning = true;
-    showStatus("Inicio de pomodoro 🍅");
+    showStatus("Inicio de pomodoro");
     interval = setInterval(() => {
       if (totalSeconds > 0) {
         totalSeconds--;
@@ -105,7 +102,7 @@ function stopTimer() {
     isRunning = false;
     statusText.textContent = "Pomodoro Pausado";
     statusText.classList.add("show");
-    showStatus("Se detuvo el pomodoro");
+    showStatus("Se pauso el pomodoro");
   }
 }
 
@@ -115,8 +112,6 @@ function resetTimer() {
   isRunning = false;
   showStatus("Pomodoro Reiniciado");
   updateDisplay();
-
-  // 👉 Guardar el reset
   localStorage.setItem("pomodoroTime", totalSeconds);
 }
 
@@ -206,3 +201,74 @@ const panelMenu = document.getElementById("panel-menu");
 btnMenu.addEventListener("click", () => {
   panelMenu.classList.toggle("hidden");
 });
+
+const diaTxt = document.getElementById("date");
+const fechaActual = new Date();
+
+function date() {
+  if (diaTxt) {
+    const opciones = {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+    };
+
+    diaTxt.textContent = fechaActual.toLocaleDateString("es-ES", opciones);
+  }
+}
+
+date();
+
+const titleTxt = document.getElementById("title-tarea");
+
+const savedTitle = localStorage.getItem("title");
+titleTxt.innerHTML = savedTitle ? savedTitle : "Titulo";
+
+titleTxt.addEventListener("input", () => {
+  localStorage.setItem("title", titleTxt.innerHTML);
+});
+
+const btnAdd = document.getElementById("btn-add");
+const btnDelete = document.getElementById("btn-delete");
+const contenedor = document.getElementById("contenedor");
+
+window.addEventListener("DOMContentLoaded", () => {
+  const saved = JSON.parse(localStorage.getItem("tareas")) || [];
+  saved.forEach((text) => crearTarea(text));
+});
+
+function crearTarea(texto = "") {
+  const div = document.createElement("div");
+  div.classList.add("todo-tarea");
+
+  div.innerHTML = `
+    <input type="checkbox" class="button-fin" />
+    <input type="text" class="tarea" placeholder="Agrega un tarea" value="${texto}" />
+  `;
+
+  const inputText = div.querySelector(".tarea");
+  inputText.addEventListener("input", guardarTareas);
+
+  contenedor.appendChild(div)
+}
+
+btnAdd.addEventListener("click", () => {
+  crearTarea("")
+  guardarTareas()
+})
+
+btnDelete.addEventListener("click", () =>{
+  const items = document.querySelectorAll(".todo-tarea")
+  const ultimo = items[items.length - 1]
+
+  if(ultimo){
+    ultimo.remove()
+    guardarTareas()
+  }
+})
+
+
+function guardarTareas () {
+  const tareas = [...document.querySelectorAll(".tarea")].map(input => input.value)
+  localStorage.setItem("tareas", JSON.stringify(tareas))
+}

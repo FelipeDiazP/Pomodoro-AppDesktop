@@ -155,7 +155,7 @@ body {
 
 /* CENTRO */
 .items-center {
-  flex: 1; /* ocupa el espacio restante */
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -215,7 +215,7 @@ body {
 }
 
 .status {
-  height: 24px; /* reserva espacio fijo */
+  height: 24px;
   padding: 10px;
   border: none;
   border-radius: 10px;
@@ -225,20 +225,122 @@ body {
   background-color: #ffd9d9;
   text-align: center;
   transition: opacity 0.3s ease;
-  opacity: 0; /* inicia invisible */
+  opacity: 0;
 }
 
 .status.show {
-  opacity: 1; /* cuando tenga clase .show, aparece */
+  opacity: 1;
 }
 
 /* DERECHA */
 .derecha {
   position: absolute;
-  right: 20px; /* 🔥 pegado al borde derecho */
+  right: 30px;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
+}
+
+.container-ToDo {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: #471515 solid 2px;
+  border-radius: 10px;
+  background-color: #ff5252;
+}
+
+.date {
+  color: white;
+  font-size: 25px;
+}
+
+.container-tareas {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 25px;
+  border: #471515 solid 3px;
+  border-radius: 10px;
+}
+
+.tarea {
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+  font-size: 15px;
+}
+
+.button-fin {
+  transform: scale(1.5);
+  margin-right: 10px;
+  accent-color: #471515;
+  vertical-align: middle;
+}
+
+.todo-tarea {
+  display: flex;
+  padding: 5px;
+  align-items: center;
   gap: 10px;
+}
+
+.container-ToDo h1 {
+  font-size: 30px;
+  margin: 5px 0;
+}
+
+.container-ToDo p {
+  margin: 3px 0; 
+  color: white;
+  font-size: 18px;
+}
+
+.container-ToDo .date {
+  font-size: 25px;
+  margin: 3px 0;
+}
+
+.acciones-todo {
+  display: flex;
+  padding: 10px;
+  gap: 20px;
+}
+
+.btn-add {
+  padding: 5px;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  color: #471515;
+  font-weight: bold;
+  background-color: #ffd9d9;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-add:hover {
+  background-color: #833e3e;
+  transform: scale(1.05);
+}
+
+.btn-delete {
+  padding: 5px;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  color: #471515;
+  font-weight: bold;
+  background-color: #ffd9d9;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-delete:hover {
+  background-color: #833e3e;
+  transform: scale(1.05);
 }
